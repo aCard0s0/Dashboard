@@ -1,0 +1,31 @@
+<div>
+	<!-- IF -->
+	<div *ngIf="!selectedView; else complete">
+
+		<h1> Reading Views </h1>
+
+	</div>
+	<!-- ESLE -->
+    <ng-template #complete>
+
+        <!-- Switch -->
+        <div [ngSwitch]="selectedView.type">
+            
+            <generic-view
+                *ngSwitchCase = "'generic'"
+                [view] = "selectedView"
+                (notifier) = "nofityNextView()">
+            </generic-view>
+        
+            <menuView
+                *ngSwitchCase = "'menu'"
+                [menu] = "selectedView.menu"
+                (notifier) = "nofityNextView()">
+            </menuView>
+
+            <div *ngSwitchDefault>
+                    Default
+            </div>
+        </div>
+    </ng-template>
+</div>

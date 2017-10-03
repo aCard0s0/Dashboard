@@ -1,0 +1,49 @@
+<br />
+<div class="container-fluid">
+
+	<!-- IF -->
+	<div *ngIf="state; else complete">
+			<file-reader #reader
+				(notifier) = "notifyFileReader()">
+			</file-reader>
+	</div>
+	
+	<!-- ESLE -->
+	<ng-template #complete>
+		<div class="row">
+			
+			<!-- Top Panel -->
+			<panel-top
+				*ngFor="let p of topPanels"
+				[panel] = "p"
+				(click)="clikedPanel(p)"
+			></panel-top>
+		</div>
+
+		<div class="row">
+
+			<!-- Panel Principal -->
+			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-10 col-full-height">
+				<div class="panel panel-default">
+					<div class="panel-body" style="max-height: 10;">
+
+						<panel-manager
+							[selectPanel] = "selectedPanel"
+							(notifier) = "notifyNextPanel()"
+						></panel-manager>
+
+					</div>
+				</div>
+			</div>
+
+			<!-- Lateral Panel -->
+			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+				<panel-lateral #panelManager
+					*ngFor="let p of lateralPanels"
+					[panel]="p"> 
+				</panel-lateral>
+			</div>
+		</div>
+	</ng-template>
+
+</div>

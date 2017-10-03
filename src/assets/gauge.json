@@ -1,0 +1,70 @@
+"gaugeChart": {
+    "serviceUrl":"http://192.168.160.107/dashboard/api/gauge/winserver2?callback=JSONP_CALLBACK",
+    "serviceInterval": 100000,
+    "bgRadius": 30,
+    "animationSecs": 3,
+    "bgColor": "#cccccc",
+    "rounded": true,
+    "reverse": false, 
+    "segments":[
+        {
+            "value": 80,
+            "borderWidth": 14,
+            "radius": 45
+        },
+        {
+            "value": 34,
+            "borderWidth": 14,
+            "radius": 60
+        },
+        {
+            "value": 0,
+            "borderWidth": 14,
+            "radius": 75
+        }
+    ],
+    "labels": [
+        {
+            "text": "",
+            "color": "#808080",
+            "x": -15,
+            "y": -10,
+            "fontSize": "0.75em"
+        },
+        {
+            "text": "",
+            "color": "#808080",
+            "x": 17,
+            "y": -10,
+            "fontSize": "0.75em"
+        },
+        {
+            "text": "",
+            "color": "#808080",
+            "x": -15,
+            "y": 5,
+            "fontSize": "0.75em"
+        },
+        {
+            "text": "",
+            "color": "#808080",
+            "x": 17,
+            "y": 5,
+            "fontSize": "0.75em"
+        },
+        {
+            "text": "",
+            "color": "#808080",
+            "x": -15,
+            "y": 20,
+            "fontSize": "0.75em"
+        },
+        {
+            "text": "",
+            "color": "#808080",
+            "x": 17,
+            "y": 20,
+            "fontSize": "0.75em"
+        }
+    ]
+}

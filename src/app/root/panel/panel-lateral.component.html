@@ -1,0 +1,49 @@
+<div  class="selected-div" >
+	<div [class]="panel.panelColor">
+		<!-- Header -->
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-xs-12">
+					<dl class="pull-center">
+						<dt *ngFor="let s of panel.summary" >
+							<div class="panelLeft"> {{ s.display }} </div>
+							<div class="panelRight"> {{ s.subdisplay }} </div>
+							<br />
+						</dt>
+					</dl>
+				</div>
+			</div>
+		</div>
+		<!-- Footer -->
+		<div class="panel-footer">
+			<div class="row center">
+				<div class="col-xs-3">
+					<!-- Two options here, img setting image source or fontAwsome icon -->
+					<img *ngIf="panel.imgSrc" 
+						[src]="panel.imgSrc" 
+					/>
+					<font *ngIf="panel.fontAwsomeIcon"
+						[config] = "panel.fontAwsomeIcon">
+					</font>
+				</div>
+				<div class="col-xs-9">
+					<!-- If-->
+					<div class="text-center" *ngIf="!panel.active; else underline;">
+						<b><span>{{ panel.name }}</span></b>
+						<div class="clearfix "></div>
+					</div>
+					<!-- Else-->
+					<ng-template #underline>
+						<div [class]="panel.underlineColor">
+							<div class="text-center">
+								<b><span >{{ panel.name }}</span></b>
+								<div class="clearfix "></div>
+							</div>
+						</div>
+					</ng-template>
+					<!-- End If -->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

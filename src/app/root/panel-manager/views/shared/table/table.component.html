@@ -1,0 +1,35 @@
+
+<div class="panel panel-default" *ngIf="table">
+	<div class="panel-heading text-center">
+			<h3>{{ tableTitle }}</h3>
+	</div>
+	<div class="panel-body">
+		
+		<div class="table-responsive">
+			<table class="table table-striped" *ngIf="tableData">
+				<thead>
+					<tr>
+							<th
+								*ngFor="let elem of tableHeader">
+								{{ elem }}
+							</th>         
+					</tr>
+				</thead>
+				<tbody>
+					<tr 
+						*ngFor="let row of tableData">
+							<td
+								*ngFor="let elem of row">
+								{{ elem }}
+							</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="panel-footer"> 
+			{{ tableFooter }}
+	</div>
+</div>
+

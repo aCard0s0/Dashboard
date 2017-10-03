@@ -1,0 +1,4 @@
+ .center {
+    display: flex;  /* make the row a flex container */
+    align-items: center; /* vertically center each flex item in the container */
+  }

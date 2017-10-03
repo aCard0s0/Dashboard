@@ -1,0 +1,15 @@
+   
+<div class="btn-group btn-group-justified" role="group">
+    <div *ngFor="let item of itens" class="btn-group" role="group">
+        <button type="button" [class]="item.bttclass" (click)="showItem(item)" > {{ item.name }} </button>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <menuItem
+            [item] = "selectedItem"
+            (notifier) = "notify()">
+        </menuItem>
+    </div>
+</div>

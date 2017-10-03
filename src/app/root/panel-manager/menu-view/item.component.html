@@ -1,0 +1,32 @@
+<div>
+    <!-- Switch -->
+    <div [ngSwitch]="selectItem.viewId">
+        
+        <!-- 0 -->
+        <server
+            *ngSwitchCase = "'server-0'" [view] = "selectItem"></server>
+        
+        <!-- 1 -->
+        <db
+            *ngSwitchCase = "'db-0'" [view] = "selectItem"></db>
+        
+        <!-- 2 -->
+        <processes
+            *ngSwitchCase = "'proc-0'" [view] = "selectItem"></processes>
+        
+        <!-- 3 -->
+        <testes
+            *ngSwitchCase = "'test-0'" [view] = "selectItem"></testes>
+
+        <!-- 4 -->
+        <web
+            *ngSwitchCase = "'web-0'" [view] = "selectItem"></web>
+        <web
+            *ngSwitchCase = "'web-1'" [view] = "selectItem"></web>
+        <!-- 5 -->
+
+        <div *ngSwitchDefault>
+                Default
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.center {
+  display: flex;  /* make the row a flex container */
+  align-items: center; /* vertically center each flex item in the container */
+}
+
+.panelLeft {
+  float:left;
+}
+
+.panelRight {
+  float:right;
+}
+
+.underline-panel-blue {
+  background: #337ab7;
+  color: white;
+}
+
+.underline-panel-yellow {
+  background: #f0ad4e;
+  color: white;
+}
+
+.underline-panel-green {
+  background: #5cb85c;
+  color: white;
+}
+
+.underline-panel-red {
+  background: #d9534f;
+  color: white;
+}

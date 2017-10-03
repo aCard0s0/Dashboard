@@ -1,0 +1,21 @@
+
+<div [ngSwitch]="view.viewId"> <!--viewType-->
+        
+	<web-status 
+		*ngSwitchCase = "'web-0'"
+		[configs] = "view.webStatus">
+	</web-status>
+
+	<table-wrapper
+		*ngSwitchCase = "'web-1'"
+		[tablesView] = "view.tables">
+	</table-wrapper>
+
+</div>
+
+
+
+<!-- <web-status 
+*ngSwitchCase = "'web-0'" [view] = "selectItem"></web-status>
+<table-wrapper
+*ngSwitchCase = "'web-1'" [view] = "selectItem"></table-wrapper> -->
