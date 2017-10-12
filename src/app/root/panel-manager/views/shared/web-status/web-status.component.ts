@@ -11,9 +11,9 @@ import { WebStatus } from "../web-status/web-status.model";
 })
 export class WebStatusComponent implements OnInit, OnDestroy {
 
-    @Input("configs")
-        set configs(value: any[]) { this._bs.next(value); }
-        get configs(): any[] { return this._bs.getValue() };
+    @Input("webStatus")
+        set configs(value) { this._bs.next(value); }
+        get configs() { return this._bs.getValue() };
         
     private _bs = new BehaviorSubject<any>([]);
     private subscription: Subscription;
@@ -23,7 +23,7 @@ export class WebStatusComponent implements OnInit, OnDestroy {
     public rightArr: WebStatus[];
     public leftArr: WebStatus[];
 
-    private timer;
+    private timers: any[];
 
     constructor(
         public service: ServiceManager
@@ -34,7 +34,7 @@ export class WebStatusComponent implements OnInit, OnDestroy {
         this.subscription = this._bs.subscribe( () => {
 
             this.webStatus = [];
-            this.configs.forEach( (elem, i) => {
+            this.configs.websites.forEach( (elem, i) => {
                 this.webStatus[i] = new WebStatus(elem);
             });
             this.callService();
@@ -42,12 +42,22 @@ export class WebStatusComponent implements OnInit, OnDestroy {
     }
     
     ngAfterViewInit() {
-        // timer do refresh
+        
+        this.timers = [];
+
+		this.webStatus.forEach( (web, i) => {
+		  this.timers[i] = setInterval( () => {
+
+				this.callService();
+			}, this.configs.serviceInterval);
+		});
     }
     
     ngOnDestroy() {
         this.subscription.unsubscribe();
-        clearInterval(this.timer);
+        this.timers.forEach(time => {
+			clearInterval(time);
+		});
     }
     
     private callService() {
@@ -66,11 +76,22 @@ export class WebStatusComponent implements OnInit, OnDestroy {
                         console.log(err);
                     },
                     () => {
-                        // split
+                        // split  -- pedreiro ??
                         if( !this.flags.includes(undefined) ) {
                             let temp = this.webStatus.length-Math.floor(this.webStatus.length/2);
-                            this.leftArr = this.webStatus.splice(0, temp); 
-                            this.rightArr = this.webStatus;
+                            let x =0, y=0;
+                            this.leftArr = [];
+                            this.rightArr = [];
+                            for(let i=0; i < this.webStatus.length; i++) {
+                                if (i < temp) {
+                                    this.leftArr[x] = this.webStatus[i];
+                                    x++;
+                                }
+                                else {
+                                    this.rightArr[y] = this.webStatus[i];
+                                    y++;
+                                }
+                            }
                         }
                     }
             );

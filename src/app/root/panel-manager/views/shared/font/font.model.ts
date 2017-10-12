@@ -6,7 +6,7 @@ export class FontIcon {
     public animation: string;
     public rotate: number | string;
     public inverse: string;
-    public style: string;
+    public color: string;
 
     constructor() {
         this.name = undefined;
@@ -15,6 +15,6 @@ export class FontIcon {
         this.animation = undefined;
         this.rotate = undefined;
         this.inverse = undefined;
-        this.style = undefined;
+        this.color = undefined;
     }
 }

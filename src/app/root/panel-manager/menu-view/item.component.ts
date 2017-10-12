@@ -48,7 +48,7 @@ export class ItemComponent implements OnInit, OnDestroy {
 
         this.notify.emit();
         clearTimeout(this.displayTimer);
-    },  this.item.isCliked() );
+    },  this.item.getDisplayTime() );
   }
 
   ngOnDestroy() {

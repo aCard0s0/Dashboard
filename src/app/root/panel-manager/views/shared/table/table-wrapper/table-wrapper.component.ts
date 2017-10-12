@@ -11,12 +11,12 @@ import { TableView } 							from '../../../views.model';
 })
 export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 
-		@Input("tablesView")
-			set view(value) { this._bs.next(value); }
-			get view() { return this._bs.getValue() };
+	@Input("tablesView")
+		set view(value) { this._bs.next(value); }
+		get view() { return this._bs.getValue() };
 
-		private _bs = new BehaviorSubject<any>([]);
-		private subscription: Subscription;
+	private _bs = new BehaviorSubject<any>([]);
+	private subscription: Subscription;
 
     public tables: TableModel[];
     private timers: Array<any>;
@@ -42,6 +42,7 @@ export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 		this.view.forEach( (table, i) => {
 		  this.timers[i] = setInterval( () => {
 				this.callService(table);
+				console.log("refreshed");
 			}, table.serviceInterval);
 		});
 	}
@@ -74,9 +75,10 @@ export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 					tableResult.tableTitle = table.title;
 					tableResult.tableFooter = table.footer;
 					this.tables.push( tableResult );
-          if (this.tables.length > 2){
-            this.tables = this.tables.slice(this.tables.length-1, this.tables.length)
+					if (this.tables.length > 2){
+						this.tables = this.tables.slice(this.tables.length-1, this.tables.length)
 					}
+					console.log(this.tables)
 				}
 		  );
 	  }

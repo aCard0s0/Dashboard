@@ -11,22 +11,22 @@
 				"animation":"",
 				"rotate":"",
 				"inverse":"",
-				"style":"color:black"
+				"color":"balck"
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 30000,
 			"summary": [
 				{
-					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/winserver?callback=JSONP_CALLBACK",
+					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/24?callback=JSONP_CALLBACK",
 					"display": "Win1: ",
 					"subdisplay": "{state}"
 				},
 				{
-					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/winserver?callback=JSONP_CALLBACK",
+					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/25?callback=JSONP_CALLBACK",
 					"display": "Win2: ",
 					"subdisplay": "{state}"
 				},
 				{
-					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/winserver3?callback=JSONP_CALLBACK",
+					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/124?callback=JSONP_CALLBACK",
 					"display": "Win3: ",
 					"subdisplay": "{state}"
 				}
@@ -52,7 +52,7 @@
 						"itens":[
 							{
 								"name": "Winserver 1",
-								"displayTime": 6000,
+								"displayTime": 60000,
 								"view": {
 									"viewId": "server-0",
 									"serverStatus":{
@@ -62,7 +62,7 @@
 										"fontAwsomeIcon": {
 											"name": "exclamation-triangle",
 											"size": "5x",
-											"style":"color:red"
+											"color":"red"
 										}
 									},
 									"serverGeneral": {
@@ -70,7 +70,7 @@
 									},
 									"gaugeCharts": {
 										"serviceURL": "http://192.168.160.107/dashboard/api/gauge/winserver?callback=JSONP_CALLBACK",
-										"serviceInterval": 5000,
+										"serviceInterval": 30000,
 										"charts": [
 											{
 												"title": "RTA - ms",
@@ -96,17 +96,17 @@
 								}
 							},{
 								"name": "Winserver 2",
-								"displayTime": 6000,
+								"displayTime": 60000,
 								"view": {
 									"viewId": "server-0",
 									"serverStatus":{
 										"serviceURL": "http://192.168.160.107/dashboard/api/summary/winserver2/cpu?callback=JSONP_CALLBACK",
-										"serviceInterval": 60000,
+										"serviceInterval": 30000,
 										"errMensage": "Erro No Acesso Ao Servidor!",
 										"fontAwsomeIcon": {
 											"name": "exclamation-triangle",
 											"size": "5x",
-											"style":"color:red"
+											"color":"red"
 										}
 									},
 									"serverGeneral": {
@@ -114,7 +114,7 @@
 									},
 									"gaugeCharts": {
 										"serviceURL": "http://192.168.160.107/dashboard/api/gauge/winserver2?callback=JSONP_CALLBACK",
-										"serviceInterval": 5000,
+										"serviceInterval": 30000,
 										"charts": [
 											{
 												"title": "RTA - ms",
@@ -150,7 +150,7 @@
 										"fontAwsomeIcon": {
 											"name": "exclamation-triangle",
 											"size": "5x",
-											"style":"color:red"
+											"color":"red"
 										}
 									},
 									"serverGeneral": {
@@ -195,7 +195,7 @@
 				"name": "database",
 				"size": "2x"
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 30000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/summary/ASPState?callback=JSONP_CALLBACK",
@@ -218,7 +218,7 @@
 					"completos": [{
 							"hours":[240, "*"],
 							"panelColor":"red",
-							"text": "Em Falta"
+							"text": "Falta"
 						},{
 							"hours":[168, 240],
 							"panelColor":"yellow",
@@ -232,7 +232,7 @@
 					"transactions":[{
 							"hours":[48, "*"],
 							"panelColor":"red",
-							"text": "Em Falta"
+							"text": "Falta"
 						},{
 							"hours":[24, 48],
 							"panelColor":"yellow",
@@ -251,41 +251,41 @@
 					"menu":{
 						"itens":[ 
 							{
-								"name": "Base de Dados 1",
-								"displayTime": 6000,
+								"name": "BD Tribunais",
+								"displayTime": 30000,
 								"view": {
 									"viewId": "db-0",
 									"tables":[
 										{
 											"title":"MJCVProcessos",
 											"serviceURL": "http://192.168.160.107/dashboard/api/table/MJCVProcessos?callback=JSONP_CALLBACK",
-											"serviceInterval": 150000,
+											"serviceInterval": 10000,
 											"footer":""
 										},
 										{
-											"title":"ASPState",
-											"serviceURL": "http://192.168.160.107/dashboard/api/table/ASPState?callback=JSONP_CALLBACK",
-											"serviceInterval": 150000,
+											"title":"WorkflowPersistence",
+											"serviceURL": "http://192.168.160.107/dashboard/api/table/WorkflowPersistence?callback=JSONP_CALLBACK",
+											"serviceInterval": 10000,
 											"footer":""
 										}
 									]
 								}
 							}, {
-								"name": "Base de Dados 2",
-								"displayTime": 6000,
+								"name": "OACV e ASPState",
+								"displayTime": 30000,
 								"view": {
 									"viewId": "db-0",
 									"tables":[
 										{
-											"title":"MJCVProcessos",
-											"serviceURL": "http://192.168.160.107/dashboard/api/table/MJCVProcessos?callback=JSONP_CALLBACK",
-											"serviceInterval": 150000,
+											"title":"OACV",
+											"serviceURL": "http://192.168.160.107/dashboard/api/table/OrdemDosAdvogados?callback=JSONP_CALLBACK",
+											"serviceInterval": 10000,
 											"footer":""
 										},
 										{
 											"title":"ASPState",
 											"serviceURL": "http://192.168.160.107/dashboard/api/table/ASPState?callback=JSONP_CALLBACK",
-											"serviceInterval": 150000,
+											"serviceInterval": 10000,
 											"footer":""
 										}
 									]
@@ -386,7 +386,7 @@
 						"itens":[ 
 							{
 								"name": "Proc. Consultados e Novos",
-								"displayTime": 6000,
+								"displayTime": 60000,
 								"view": {
 									"viewId": "proc-0",
 									"lineChart":{
@@ -399,7 +399,7 @@
 										"xAxisModel":"{d}, {wd}",
 										"xAxisLabel":[],
 										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procACN/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 150000
+										"serviceInterval": 300000
 									},
 									"pieChart":{
 										"type": "pie",
@@ -408,12 +408,12 @@
 											"value": 7
 										},
 										"serviceUrl":"http://192.168.160.107/dashboard/api/pieChart/procACN/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 150000
+										"serviceInterval": 300000
 									}
 								}
 							},{
 								"name": "Proc. Civis e Penais",
-								"displayTime": 6000,
+								"displayTime": 60000,
 								"view": {
 									"viewId": "proc-0",
 									"lineChart":{
@@ -426,7 +426,7 @@
 										"xAxisModel":"{m}, {y}",
 										"xAxisLabel":[],
 										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procCPR/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 150000
+										"serviceInterval": 30000
 									},
 									"pieChart":{
 										"type": "pie",
@@ -435,12 +435,12 @@
 											"value": 6
 										},
 										"serviceUrl":"http://192.168.160.107/dashboard/api/pieChart/procCPR/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 150000
+										"serviceInterval": 30000
 									}
 								}
 							},{
 								"name": "Requerimentos e Despachos Pendentes",
-								"displayTime": 6000,
+								"displayTime": 60000,
 								"view": {
 									"viewId": "proc-0",
 									"lineChart":{
@@ -453,7 +453,7 @@
 										"xAxisModel":"{m}, {y}",
 										"xAxisLabel":[],
 										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procPend/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 150000
+										"serviceInterval": 300000
 									},
 									"pieChart":{
 										"type": "pie",
@@ -462,7 +462,7 @@
 											"value": 6
 										},
 										"serviceUrl":"http://192.168.160.107/dashboard/api/pieChart/procPend/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 150000
+										"serviceInterval": 300000
 									}
 								}
 							}
@@ -478,7 +478,7 @@
 				"name": "bug",
 				"size": "2x"
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 30000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/Dashboard-Test/api/testes?version=1.7.3&callback=JSONP_CALLBACK",
@@ -516,22 +516,21 @@
 					"menu":{
 						"itens":[ 
 							{
-								"name": "... 1",
-								"displayTime": 6000,
+								"name": "Últimos Testes SIJ",
+								"displayTime": 60000,
 								"view": {
 									"viewId": "test-0",
 									"tables":[
 										{
-											"title":"MJCVProcessos",
 											"serviceURL": "http://192.168.160.107/Dashboard-Test/api/testes?type=table&callback=JSONP_CALLBACK",
-											"serviceInterval": 5000,
+											"serviceInterval": 30000,
 											"footer":""
 										}
 									]
 								}
 							}, {
-								"name": "... 2",
-								"displayTime": 6000,
+								"name": "Ver. 1.7.1 & 1.7.2",
+								"displayTime": 60000,
 								"view": {
 									"viewId": "test-0",
 									"tables":[
@@ -550,21 +549,21 @@
 									]
 								}
 							}, {
-								"name": "... 3",
-								"displayTime": 6000,
+								"name": "Ver. 1.7.3 & 1.7.4",
+								"displayTime": 60000,
 								"view": {
 									"viewId": "test-0",
 									"tables":[
 										{
 											"title":"Versão: 1.7.3",
 											"serviceURL": "http://192.168.160.107/dashboard-test/api/testes?type=table&version=1.7.3&callback=JSONP_CALLBACK",
-											"serviceInterval": 10000,
+											"serviceInterval": 30000,
 											"footer":""
 										},
 										{
 											"title":"Versão: 1.7.4",
 											"serviceURL": "http://192.168.160.107/dashboard-test/api/testes?type=table&version=1.7.4&callback=JSONP_CALLBACK",
-											"serviceInterval": 10000,
+											"serviceInterval": 30000,
 											"footer":""
 										}
 									]
@@ -582,7 +581,7 @@
 				"name": "globe",
 				"size": "2x"
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 60000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/sij?callback=JSONP_CALLBACK",
@@ -625,122 +624,126 @@
 					"menu":{
 						"itens":[
 							{
-								"name": "... 1",
-								"displayTime": 10000,
+								"name": "Web Status",
+								"displayTime": 60000,
 								"view": {
 									"viewId": "web-0",
-									"webStatus": [
-										{
-											"name": "S.I.J. Website",
-											"serviceURL":"http://192.168.160.107/dashboard/api/ping/sij?callback=JSONP_CALLBACK",
-											"onIcon": {
-												"name": "check-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:green"
-											},
-											"offIcon": {
-												"name": "minus-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:red"
-											}
-										}, {
-											"name": "D.J.E. Website",
-											"serviceURL":"http://192.168.160.107/dashboard/api/ping/dje?callback=JSONP_CALLBACK",
-											"onIcon": {
-												"name": "check-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:green"
-											},
-											"offIcon": {
-												"name": "minus-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:red"
-											}
-										}, {
-											"name": "O.A.C.V Website",
-											"serviceURL":"http://192.168.160.107/dashboard/api/ping/oacv?callback=JSONP_CALLBACK",
-											"onIcon": {
-												"name": "check-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:green"
-											},
-											"offIcon": {
-												"name": "minus-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:red"
-											}
-										}, {
-											"name": "Identity Website",
-											"serviceURL":"http://192.168.160.107/dashboard/api/ping/identity?callback=JSONP_CALLBACK",
-											"onIcon": {
-												"name": "check-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:green"
-											},
-											"offIcon": {
-												"name": "minus-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:red"
-											}
-										}, {
-											"name": "ITop Website",
-											"serviceURL":"http://192.168.160.107/dashboard/api/ping/itop?callback=JSONP_CALLBACK",
-											"onIcon": {
-												"name": "check-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:green"
-											},
-											"offIcon": {
-												"name": "minus-square",
-												"size": "5x",
-												"fixed": "",
-												"animation":"",
-												"rotate":"",
-												"inverse":"",
-												"style":"color:red"
-											}
-										} 
-									]
+									"webStatus": {
+										"serviceInterval": 30000,
+										"websites": [
+											{
+												"name": "S.I.J. Website",
+												"serviceURL":"http://192.168.160.107/dashboard/api/ping/sij?callback=JSONP_CALLBACK",
+												"onIcon": {
+													"name": "check-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"green"
+												},
+												"offIcon": {
+													"name": "minus-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"red"
+												}
+											}, {
+												"name": "D.J.E. Website",
+												"serviceURL":"http://192.168.160.107/dashboard/api/ping/dje?callback=JSONP_CALLBACK",
+												"onIcon": {
+													"name": "check-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"green"
+												},
+												"offIcon": {
+													"name": "minus-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"red"
+												}
+											}, {
+												"name": "O.A.C.V Website",
+												"serviceURL":"http://192.168.160.107/dashboard/api/ping/oacv?callback=JSONP_CALLBACK",
+												"onIcon": {
+													"name": "check-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"green"
+												},
+												"offIcon": {
+													"name": "minus-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"red"
+												}
+											}, {
+												"name": "Identity Website",
+												"serviceURL":"http://192.168.160.107/dashboard/api/ping/identity?callback=JSONP_CALLBACK",
+												"onIcon": {
+													"name": "check-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"green"
+												},
+												"offIcon": {
+													"name": "minus-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"red"
+												}
+											}, {
+												"name": "ITop Website",
+												"serviceURL":"http://192.168.160.107/dashboard/api/ping/itop?callback=JSONP_CALLBACK",
+												"onIcon": {
+													"name": "check-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"green"
+												},
+												"offIcon": {
+													"name": "minus-square",
+													"size": "5x",
+													"fixed": "",
+													"animation":"",
+													"rotate":"",
+													"inverse":"",
+													"color":"red"
+												}
+											} 
+										]
+									}
+									
 								}
 							},{
-								"name": "... 2",
-								"displayTime": 6000,
+								"name": "Detalhes Ações SIJ",
+								"displayTime": 60000,
 								"view": {
 									"viewId": "web-1",
 									"tables":[
@@ -753,6 +756,18 @@
 												"type": "byWeek",
 												"value": 7
 											}
+										}
+									]
+								}
+							},
+							{
+								"name":"Detalhes Eventos",
+								"displayTime": 60000,
+								"view": {
+									"viewId": "web-2",
+									"tables": [
+										{
+											"title": "Detalhes dos Eventos"
 										}
 									]
 								}
@@ -769,7 +784,7 @@
 				"name": "users",
 				"size": "2x"
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 60000,
 			"summary": [{
 					"serviceUrl": "",
 					"display": "XX.XXX Online",
@@ -781,7 +796,6 @@
 				}
 			],
 			"threshold":{
-				
 			}
 		}
 	],
@@ -809,7 +823,7 @@
 					}
 				]
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 30000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/summary/winserver2/cpu?callback=JSONP_CALLBACK",
@@ -851,7 +865,7 @@
 					}
 				]
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 30000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/summary/winserver/ram?callback=JSONP_CALLBACK",
@@ -871,7 +885,7 @@
 			]
 		},
 		{
-			"name": "Disco Rigido",
+			"name": "Disco Rígido",
 			"defaultColor":"panel panel-primary",
 			"fontAwsomeIcon": {
 				"name": "hdd-o",
@@ -896,7 +910,7 @@
 					}
 				]
 			},
-			"summaryIntreval": 180000,
+			"summaryIntreval": 30000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/summary/winserver2/drive?callback=JSONP_CALLBACK",

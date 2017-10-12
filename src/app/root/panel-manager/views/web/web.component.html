@@ -3,11 +3,16 @@
         
 	<web-status 
 		*ngSwitchCase = "'web-0'"
-		[configs] = "view.webStatus">
+		[webStatus] = "view.webStatus">
 	</web-status>
 
 	<table-wrapper
 		*ngSwitchCase = "'web-1'"
+		[tablesView] = "view.tables">
+	</table-wrapper>
+
+	<table-wrapper
+		*ngSwitchCase = "'web-2'"
 		[tablesView] = "view.tables">
 	</table-wrapper>
 

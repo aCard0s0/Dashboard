@@ -32,3 +32,15 @@ export class TableModel implements TableModelInter {
     this.tableData = data;
   }
 }
+
+interface TableConfig {
+  title?: string;
+  serviceURL: string;
+  serviceInterval: number;
+  footer?: string;
+}
+
+class Table {
+
+  constructor() {}
+}

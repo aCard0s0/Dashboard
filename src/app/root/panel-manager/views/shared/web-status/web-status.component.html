@@ -4,18 +4,20 @@
     <div class="col-lg-6">
 
         <div *ngFor="let web of leftArr">
-            <div *ngIf="web">
-                <div class="row center">
-                    <div class="col-lg-6 text-right">
-                        <h1><small>{{ web.name }}</small></h1>
-                    </div>
-                    <div class="col-lg-6">
-                        <font 
-                            [config] = "web.getFont()">
-                        </font>
-                    </div>
+            <div class="row center">
+                <!-- img -->
+                <div class="col-md-6 col-lg-2">
+                    <font 
+                        [config] = "web.getFont()">
+                    </font>
+                </div>
+                <!-- text -->
+                <div class="col-md-6 col-lg-10 text-left">
+                    <h1><small>{{ web.name }}</small></h1>
+                    <small>{{ web.url }}</small>
                 </div>
             </div>
+            <hr />
         </div>
 
     </div>
@@ -24,18 +26,20 @@
     <div class="col-lg-6">
 
         <div *ngFor="let web of rightArr">
-            <div *ngIf="web">
-                <div class="row center">
-                    <div class="col-lg-6 text-right">
-                        <h1><small>{{ web.name }}</small></h1>
-                    </div>
-                    <div class="col-lg-6">
-                        <font 
-                            [config] = "web.getFont()">
-                        </font>
-                    </div>
+            <div class="row center">
+                <!-- img -->
+                <div class="col-md-6 col-lg-2">
+                    <font 
+                        [config] = "web.getFont()">
+                    </font>
+                </div>
+                <!-- text -->
+                <div class="col-md-6 col-lg-10 text-left">
+                    <h1><small>{{ web.name }}</small></h1>
+                    <small>{{ web.url }}</small>
                 </div>
             </div>
+            <hr />
         </div>
 
     </div>

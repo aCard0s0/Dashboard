@@ -6,6 +6,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 @Component({
   selector: 'font',
   templateUrl: './font.component.html',
+  styleUrls: ["./colors.css"]
 })
 export class FontComponent implements OnInit {
 
@@ -17,16 +18,15 @@ export class FontComponent implements OnInit {
     private subscription: Subscription;
 
     public icon;
-    public color;
 
     constructor(
         private sanitizer: DomSanitizer
     ) { }
 
     ngOnInit() {
-        this.subscription = this._bs.subscribe( () => { 
+        this.subscription = this._bs.subscribe( () => {
             this.icon = this.config;
-            this.color = this.config.style? this.sanitizer.bypassSecurityTrustStyle(this.config.style) : "";
+            /*this.color = this.config.cssStyle; ? this.sanitizer.bypassSecurityTrustStyle(this.config.style) : ""; */
         });
     }
 }

@@ -44,7 +44,7 @@ export class MenuItem implements MenuItemView {
     this.bttclass = BttClass.disable;
   }
 
-  isCliked(): number {
-    return this.clicked ? this.displayTime + 3000 : this.displayTime;
+  getDisplayTime(): number {
+    return this.clicked ? this.displayTime * 2 : this.displayTime;
   }
 }

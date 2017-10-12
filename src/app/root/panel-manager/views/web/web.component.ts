@@ -26,7 +26,6 @@ export class WebComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.subscription = this._bs.subscribe( () => {
       
-      console.log(this.view)
       this.webStatus = this.view.webStatus;
       this.tables = this.view.tables;
     });
