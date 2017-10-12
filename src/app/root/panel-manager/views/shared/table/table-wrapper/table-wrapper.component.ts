@@ -2,7 +2,7 @@ import { Component, OnInit, Input, AfterViewInit, OnDestroy } from '@angular/cor
 import { ServiceManager }           from 'app/services/service.manager'
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Subscription }   from 'rxjs/Subscription';
-import { TableModel, TableData }	from '../table.model';
+import { Table }	from '../table.model';
 import { TableView } 							from '../../../views.model';
 
 @Component({
@@ -18,7 +18,7 @@ export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 	private _bs = new BehaviorSubject<any>([]);
 	private subscription: Subscription;
 
-    public tables: TableModel[];
+    public tables: Table[] = [];
     private timers: Array<any>;
 
 	constructor(
@@ -28,10 +28,14 @@ export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 	ngOnInit() {
 
 		this.subscription = this._bs.subscribe( () => {
-
+			
 			this.tables = [];
-			this.view.forEach( (table) => {
-					this.callService(table);
+			this.view.forEach( (table, i) => {
+				this.tables[i] = new Table(table);
+			});
+			// frist display
+			this.tables.forEach( (table, i) => {
+				this.workflow(table, i);
 			});
 		});
 	}
@@ -39,10 +43,9 @@ export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 	ngAfterViewInit() {
 
 		this.timers = [];
-		this.view.forEach( (table, i) => {
-		  this.timers[i] = setInterval( () => {
-				this.callService(table);
-				console.log("refreshed");
+		this.tables.forEach( (table, i) => {
+		  	this.timers[i] = setInterval( () => {
+				this.workflow(table, i);
 			}, table.serviceInterval);
 		});
 	}
@@ -55,30 +58,22 @@ export class TableWrapperComponent implements OnInit, AfterViewInit, OnDestroy {
 		});
 	}
 
-	callService(table: TableView) {
+	private workflow(table: Table, i: number) {
 		
-		let tableResult: TableModel;
-		let tDataResult: TableData[];
-		this.service.callService(table.serviceURL)
+		if(table.needToConfigUrl()){
+			table.configUrl();
+		}
+		this.callService(table.serviceURL, i);
+	}
+
+	private callService(url: string, index: number) {
+		this.service.callService(url)
 		  .subscribe(
 				res => {   // success
-					tDataResult = new Array<TableData>(res.length);
-					for(let i=0; i < res.length; i++){
-					tDataResult[i] = new TableData(res[i].colName, res[i].colValues);
-					}
+					this.tables[index].setData(res);
 				},
 				err => {  // fail
 					console.log(err)
-				},
-				() => {   // finally on success
-					tableResult = new TableModel(tDataResult);
-					tableResult.tableTitle = table.title;
-					tableResult.tableFooter = table.footer;
-					this.tables.push( tableResult );
-					if (this.tables.length > 2){
-						this.tables = this.tables.slice(this.tables.length-1, this.tables.length)
-					}
-					console.log(this.tables)
 				}
 		  );
 	  }

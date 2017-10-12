@@ -1,7 +1,7 @@
 import { 
     format, addDays, subDays, 
     getDaysInMonth, subMonths, lastDayOfMonth,
-    differenceInHours } from 'date-fns';
+    differenceInHours, subYears, lastDayOfYear } from 'date-fns';
 
 const DATE_FORMAT: string = "YYYY-MM-DD"
 
@@ -52,6 +52,14 @@ export class DateManager {
 
     public getNameMonth() {
         return this.monthArr[this.date.getMonth()];
+    }
+
+    public setPrevyear() {
+        this.date = subYears(this.date, 1);
+    }
+
+    public setLastDayOfYear() {
+        this.date = lastDayOfYear(this.date);
     }
 
     /**

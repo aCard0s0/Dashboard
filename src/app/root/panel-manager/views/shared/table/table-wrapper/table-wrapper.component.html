@@ -1,24 +1,29 @@
 <div *ngIf="tables">
         
-    <div *ngIf="tables.length == 2; else templateForTwoTables">
+    <div *ngIf="tables.length == 2; else templateForOneTables">
+
         <div *ngFor="let table of tables">
             <div class="col-sm-12 col-md-12 col-lg-6">
 
-                <mytable
-                    [table] = "table">
-                </mytable>
+                <div *ngIf="table.tableData">
+                    <mytable
+                        [table] = "table">
+                    </mytable>
+                </div>
 
             </div>
         </div>
     </div>
 
-    <ng-template #templateForTwoTables>
+    <ng-template #templateForOneTables>
         <div *ngFor="let table of tables">
             <div class="col-sm-12 col-md-12 col-lg-12">
-
-                <mytable
-                    [table] = "table">
-                </mytable>
+                    
+                <div *ngIf="table.tableData">
+                    <mytable
+                        [table] = "table">
+                    </mytable>
+                </div>
 
             </div>
         </div>

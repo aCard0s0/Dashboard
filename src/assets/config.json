@@ -246,6 +246,7 @@
 				}
 			},
 			"views": [
+
 				{
 					"type":"menu",
 					"menu":{
@@ -748,12 +749,12 @@
 									"viewId": "web-1",
 									"tables":[
 										{
-											"title":"Detalhes das Acções - Periodo de xx-xx até xx-xx (Semanal)",
-											"serviceURL": "http://192.168.160.107/dashboard/api/table/action/2017-01-01/2017-09-08?callback=JSONP_CALLBACK",
+											"title":"Detalhes das Acções ({datemin} / {datemax})",
+											"serviceURL": "http://192.168.160.107/dashboard/api/table/action/{datemin}/{datemax}?callback=JSONP_CALLBACK",
 											"serviceInterval": 30000,
 											"footer":"",
 											"dateConfig":{
-												"type": "byWeek",
+												"type": "byDay",
 												"value": 7
 											}
 										}
@@ -764,10 +765,17 @@
 								"name":"Detalhes Eventos",
 								"displayTime": 60000,
 								"view": {
-									"viewId": "web-2",
+									"viewId": "web-1",
 									"tables": [
 										{
-											"title": "Detalhes dos Eventos"
+											"title": "Detalhes dos Eventos ({datemin} / {datemax})",
+											"serviceURL": "http://192.168.160.107/dashboard/api/table/eventlog/{datemin}/{datemax}?callback=JSONP_CALLBACK",
+											"serviceInterval": 30000,
+											"footer":"",
+											"dateConfig":{
+												"type": "byDay",
+												"value": 7
+											}
 										}
 									]
 								}

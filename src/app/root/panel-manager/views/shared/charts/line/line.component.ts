@@ -97,8 +97,8 @@ export class LineChartComponent implements OnInit, OnDestroy {
         now.setLastDayOfMonth();
       
       } else if (this.dateConfig.type == "byYears") {
-        // set prev year
-        // set last day of the year
+        now.setPrevyear();
+        now.setLastDayOfYear();
       }
     }
     this.chart.xAxisLabel = xAxis;
