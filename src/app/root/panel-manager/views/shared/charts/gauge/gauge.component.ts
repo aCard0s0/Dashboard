@@ -6,13 +6,7 @@ import { Subscription }   	from 'rxjs/Subscription';
 
 @Component({
   selector: 'gauge',
-  //templateUrl: './views.component.html',
-  template: `
-	<div align="center">
-	  <justgage [options]="options" [max]="max" [value]="value"></justgage>
-	  <!-- {{ units }} -->
-	</div>
-  `
+  templateUrl: './gauge.component.html'
 })
 export class GaugeComponent implements OnInit {
 
@@ -26,35 +20,35 @@ export class GaugeComponent implements OnInit {
 	
     public options;
     public max;
-	public value;
-	public units;
+		public value;
+		public units;
     
     constructor(
-		public service: ServiceManager
-	) {}
+			public service: ServiceManager
+		) {}
 
     ngOnInit() {
-		this.subscription = this._bs.subscribe( () => {
+			this.subscription = this._bs.subscribe( () => {
 
-			this.options = {
-				min: this.details.min,
-				title: this.details.title
-			};
-		});
+				this.options = {
+					min: this.details.min,
+					title: this.details.title
+				};
+			});
+			
+			this.max = this.details.total;
+			if(this.details.percentage)
+				this.value = this.details.perc;
+			else
+				this.value = this.details.used;
+			
+			this.units = this.details.units;
+		}
 		
-		this.max = this.details.total;
-		if(this.details.percentage)
-			this.value = this.details.perc;
-		else
-			this.value = this.details.used;
-		
-		this.units = this.details.units;
-	}
-	
-	ngOnDestroy() {
-		this.subscription.unsubscribe();
-	}
+		ngOnDestroy() {
+			this.subscription.unsubscribe();
+		}
 
-	private callService() {
-	}
+		private callService() {
+		}
 }

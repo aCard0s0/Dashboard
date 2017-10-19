@@ -5,9 +5,10 @@
       [labels]="chart.xAxisLabel"
       [options]="chart.options"
       [legend]="chart.legend"
-      [chartType]="chart.type"
-      (chartHover)="chartHovered($event)"
-      (chartClick)="chartClicked($event)">
+      [chartType]="chart.type">
   </canvas>
-    <!-- [colors]="chart.colors" -->
+    <!-- [colors]="chart.colors"
+        (chartHover)="chartHovered($event)"
+      (chartClick)="chartClicked($event)"
+    -->
 </div>

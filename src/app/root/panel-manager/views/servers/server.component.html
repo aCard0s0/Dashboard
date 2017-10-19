@@ -15,7 +15,7 @@
         </div>
 
         <!-- Center -->
-        <div class="row" *ngIf="gauges">
+        <div class="row" *ngIf="gauges" style="height:200px">
 
             <!-- FOR, prepare only for 4 charts -->
             <div *ngFor="let chart of gauges">
@@ -23,6 +23,7 @@
                     <gauge [details] = "chart"></gauge>
                 </div>
             </div>
+            
         </div>
 
         <!-- Footer -->

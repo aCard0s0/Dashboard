@@ -76,7 +76,7 @@ export class LineChartComponent implements OnInit, OnDestroy {
     for(let i=this.dateConfig.value-1; i >= 0; i--) {
       // format xAsis
       xAxis[i] = this.chart.xAxisModel               
-                    .replace("{d}",   now.getDay().toString() )  
+                    .replace("{d}",   now.getDay().toString() ) 
                     .replace("{wd}",  now.getWeekDay() )
                     .replace("{m}",   now.getNameMonth() )
                     .replace("{y}",   now.getyear().toString() );
@@ -101,8 +101,9 @@ export class LineChartComponent implements OnInit, OnDestroy {
         now.setLastDayOfYear();
       }
     }
+    this.chart.xAxisLabel = new Array<string>();
     this.chart.xAxisLabel = xAxis;
-    console.log(this.chart.xAxisLabel)
+    // xAxis;
   }
 
   private callService() {
@@ -127,14 +128,5 @@ export class LineChartComponent implements OnInit, OnDestroy {
           this.chart.data = responseData;
         }
       );
-  }
-
-  // events
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
   }
 }

@@ -1,9 +1,19 @@
    
 <div class="btn-group btn-group-justified" role="group">
-    <div *ngFor="let item of itens" class="btn-group" role="group">
-        <button type="button" [class]="item.bttclass" (click)="showItem(item)" > {{ item.name }} </button>
+    <div *ngFor="let item of itensName" class="btn-group" role="group">
+        <!-- IF , patch for the bug in charts labels -->
+        <button *ngIf="item.name; else invisible" 
+            type="button" 
+            [class]="item.bttclass" 
+            (click)="showItem(item)" > {{ item.name }} </button>
+        
     </div>
 </div>
+
+<!-- ELSE -->
+<ng-template #invisible >
+    <div style="width:1px"></div>
+</ng-template>
 
 <div class="panel panel-default">
     <div class="panel-body">

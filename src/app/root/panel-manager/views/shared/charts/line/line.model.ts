@@ -35,8 +35,8 @@ export class LineChartModel {
     serviceUrl:      string;
     @JsonProperty('xAxisModel')
     xAxisModel:      string;
-    @JsonProperty('xAxisLabel')
-    xAxisLabel:      string[];
+    /* @JsonProperty('xAxisLabel') */
+    xAxisLabel:      String[];
     @JsonProperty('legend')
     legend:          boolean;
     @JsonProperty('serviceInterval')
@@ -49,7 +49,7 @@ export class LineChartModel {
         this.dateConfig = undefined;        
         this.serviceUrl = undefined;
         this.xAxisModel = undefined;
-        this.xAxisLabel = undefined;
+        /* this.xAxisLabel = undefined; */
         this.legend = undefined;
         this.serviceInterval = undefined;
     }

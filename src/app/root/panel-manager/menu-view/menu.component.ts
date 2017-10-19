@@ -18,12 +18,13 @@ export class MenuComponent implements OnInit, OnDestroy {
 
   private _bs = new BehaviorSubject<any>([]);
   private subscription: Subscription;
-
-  public itens: MenuItem[];
   private idItem: number;
+  
+  public itens: MenuItem[];
   public selectedItem: MenuItem;
-
   public timer;
+
+  public itensName: MenuItem[];   //patch for chart problem
   
   constructor() { }
 
@@ -35,6 +36,10 @@ export class MenuComponent implements OnInit, OnDestroy {
       this.menu.itens.forEach( (item, i) => {
           this.itens[i] = new MenuItem(item);
       });
+
+      //patch for chart problem, don't show the ones with name
+      this.itensName = this.itens.filter( item => item.name != undefined );
+
       this.idItem = 0;
       this.selectedItem = this.itens[this.idItem];
       this.selectedItem.setEnable();

@@ -13,21 +13,21 @@
 				"inverse":"",
 				"color":"balck"
 			},
-			"summaryIntreval": 30000,
+			"summaryIntreval": 180000,
 			"summary": [
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/24?callback=JSONP_CALLBACK",
-					"display": "Win1: ",
+					"display": "192.168.160.24: ",
 					"subdisplay": "{state}"
 				},
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/25?callback=JSONP_CALLBACK",
-					"display": "Win2: ",
+					"display": "192.168.160.25: ",
 					"subdisplay": "{state}"
 				},
 				{
 					"serviceUrl": "http://192.168.160.107/dashboard/api/ping/124?callback=JSONP_CALLBACK",
-					"display": "Win3: ",
+					"display": "192.168.160.124: ",
 					"subdisplay": "{state}"
 				}
 			],
@@ -51,7 +51,7 @@
 					"menu":{
 						"itens":[
 							{
-								"name": "Winserver 1",
+								"name": "192.168.160.24",
 								"displayTime": 60000,
 								"view": {
 									"viewId": "server-0",
@@ -95,7 +95,7 @@
 									}
 								}
 							},{
-								"name": "Winserver 2",
+								"name": "192.168.160.25",
 								"displayTime": 60000,
 								"view": {
 									"viewId": "server-0",
@@ -139,8 +139,8 @@
 									}
 								}
 							}, {
-								"name": "Winserver 3",
-								"displayTime": 5000,
+								"name": "192.168.160.124",
+								"displayTime": 60000,
 								"view": {
 									"viewId": "server-0",
 									"serverStatus":{
@@ -386,33 +386,6 @@
 					"menu":{
 						"itens":[ 
 							{
-								"name": "Proc. Consultados e Novos",
-								"displayTime": 60000,
-								"view": {
-									"viewId": "proc-0",
-									"lineChart":{
-										"type":"line",
-										"dateConfig":{
-											"type": "byDay",
-											"value": 7
-										},
-										"legend": true,
-										"xAxisModel":"{d}, {wd}",
-										"xAxisLabel":[],
-										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procACN/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 300000
-									},
-									"pieChart":{
-										"type": "pie",
-										"dateConfig":{
-											"type": "byDay",
-											"value": 7
-										},
-										"serviceUrl":"http://192.168.160.107/dashboard/api/pieChart/procACN/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 300000
-									}
-								}
-							},{
 								"name": "Proc. Civis e Penais",
 								"displayTime": 60000,
 								"view": {
@@ -425,7 +398,6 @@
 										},
 										"legend": true,
 										"xAxisModel":"{m}, {y}",
-										"xAxisLabel":[],
 										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procCPR/{datemin}/{datemax}?callback=JSONP_CALLBACK",
 										"serviceInterval": 30000
 									},
@@ -452,9 +424,8 @@
 										},
 										"legend": true,
 										"xAxisModel":"{m}, {y}",
-										"xAxisLabel":[],
 										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procPend/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 300000
+										"serviceInterval": 30000
 									},
 									"pieChart":{
 										"type": "pie",
@@ -463,7 +434,36 @@
 											"value": 6
 										},
 										"serviceUrl":"http://192.168.160.107/dashboard/api/pieChart/procPend/{datemin}/{datemax}?callback=JSONP_CALLBACK",
-										"serviceInterval": 300000
+										"serviceInterval": 30000
+									}
+								}
+							},{
+								"view": {
+								}
+							},{
+								"name": "Proc. Consultados e Novos",
+								"displayTime": 60000,
+								"view": {
+									"viewId": "proc-0",
+									"lineChart":{
+										"type":"line",
+										"dateConfig":{
+											"type": "byDay",
+											"value": 7
+										},
+										"legend": true,
+										"xAxisModel":"{d}, {wd}",
+										"serviceUrl":"http://192.168.160.107/dashboard/api/lineChart/procACN/{datemin}/{datemax}?callback=JSONP_CALLBACK",
+										"serviceInterval": 30000
+									},
+									"pieChart":{
+										"type": "pie",
+										"dateConfig":{
+											"type": "byDay",
+											"value": 7
+										},
+										"serviceUrl":"http://192.168.160.107/dashboard/api/pieChart/procACN/{datemin}/{datemax}?callback=JSONP_CALLBACK",
+										"serviceInterval": 30000
 									}
 								}
 							}
@@ -633,7 +633,7 @@
 										"serviceInterval": 30000,
 										"websites": [
 											{
-												"name": "S.I.J. Website",
+												"name": "Sis. Inf. Justiça",
 												"serviceURL":"http://192.168.160.107/dashboard/api/ping/sij?callback=JSONP_CALLBACK",
 												"onIcon": {
 													"name": "check-square",
@@ -654,7 +654,7 @@
 													"color":"red"
 												}
 											}, {
-												"name": "D.J.E. Website",
+												"name": "Diário Just. Elec.",
 												"serviceURL":"http://192.168.160.107/dashboard/api/ping/dje?callback=JSONP_CALLBACK",
 												"onIcon": {
 													"name": "check-square",
@@ -675,7 +675,7 @@
 													"color":"red"
 												}
 											}, {
-												"name": "O.A.C.V Website",
+												"name": "Ordem dos Advo. C.V.",
 												"serviceURL":"http://192.168.160.107/dashboard/api/ping/oacv?callback=JSONP_CALLBACK",
 												"onIcon": {
 													"name": "check-square",
