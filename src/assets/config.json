@@ -633,7 +633,7 @@
 										"serviceInterval": 30000,
 										"websites": [
 											{
-												"name": "Sis. Inf. Justiça",
+												"name": "Sistema Informação Justiça",
 												"serviceURL":"http://192.168.160.107/dashboard/api/ping/sij?callback=JSONP_CALLBACK",
 												"onIcon": {
 													"name": "check-square",
@@ -654,7 +654,7 @@
 													"color":"red"
 												}
 											}, {
-												"name": "Diário Just. Elec.",
+												"name": "Diário Justiça Elec.",
 												"serviceURL":"http://192.168.160.107/dashboard/api/ping/dje?callback=JSONP_CALLBACK",
 												"onIcon": {
 													"name": "check-square",
@@ -675,7 +675,7 @@
 													"color":"red"
 												}
 											}, {
-												"name": "Ordem dos Advo. C.V.",
+												"name": "Ordem dos Advogados C.V.",
 												"serviceURL":"http://192.168.160.107/dashboard/api/ping/oacv?callback=JSONP_CALLBACK",
 												"onIcon": {
 													"name": "check-square",
